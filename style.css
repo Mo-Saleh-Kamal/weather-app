@@ -364,7 +364,17 @@ h3 {
 @media (max-width: 768px) {
     .container{
     left: 100%;
+    width:500px;
   }
+
+    .daily_span{
+    transform: translateX(-19px);
+  }
+
+   .location-date h2{
+    font-size: 20px;
+  }
+
   main{
     padding-left: 40px;
   }
