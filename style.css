@@ -1,0 +1,575 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "DM Sans", sans-serif;
+  background-color: hsl(243, 96%, 9%);
+  color: #fff;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 30px 20px;
+}
+main {
+  transform: translateX(-28px);
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 50px;
+  margin-top: 30px;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.logo img {
+  height: 28px;
+}
+
+.units-toggle-dropdown {
+  background: #262f40;
+  display: flex;
+  align-items: center;
+  border: none;
+  outline: none;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-weight: 500;
+  color: #fff;
+  cursor: pointer;
+}
+
+.dropdown {
+  position: relative;
+}
+.dropdown-toggle {
+  background: none;
+  border: none;
+  color: inherit;
+  font: inherit;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 110%;
+  right: 0;
+  background: #1e293b;
+  border-radius: 12px;
+  padding: 8px;
+  min-width: 156px;
+  z-index: 100;
+  max-width: 24px;
+}
+.dropdown-menu.show {
+  display: block;
+}
+.dropdown-menu button,
+.dropdown-menu li {
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  color: #fff;
+  padding: 8px 5px;
+  border-radius: 6px;
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  gap: 38px;
+  margin-bottom: 6px;
+}
+.dropdown-menu button:hover,
+.dropdown-menu li:hover {
+  background: #3a455c;
+}
+#dayMenu {
+  left: -54%;
+  right: auto;
+}
+
+h1 {
+  display: flex;
+  justify-content: center;
+  margin-top: 60px;
+  margin-bottom: 40px;
+  font-weight: 700;
+  text-align: center;
+  font-size: 52px;
+}
+
+.search_box {
+  margin: 0 auto 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+.search {
+  background: #262f40;
+  border-radius: 12px;
+  width: 700px;
+  display: flex;
+  align-items: center;
+  padding: 15px 8px 8px 20px;
+  outline: 2px solid #4a90e2;
+  gap: 12px;
+}
+
+.search img {
+  transform: translateY(-3px);
+}
+
+.search_box input {
+  background: none;
+  border: none;
+  outline: none;
+  flex: 1;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.search_box input::placeholder {
+  color: #868f9f;
+}
+
+.search_box button {
+  background: linear-gradient(hsl(233, 67%, 56%));
+  border: none;
+  outline: none;
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.search_box button:hover {
+  background: linear-gradient(hsl(233, 71%, 52%));
+}
+
+.weather-content {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  align-items: start;
+  gap: 15px;
+}
+
+.left-column {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  flex: 1.6;
+}
+
+.current-weather-card {
+  background-image: url("./assets/images/bg-today-large.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-blend-mode: overlay;
+  position: relative;
+  border-radius: 20px;
+  padding: 30px;
+  height: 295px;
+  width: 830px;
+}
+
+.current-main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.location-date h2 {
+  font-size: 32px;
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+.location-date p {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 16px;
+}
+
+.temp-icon {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.temp-icon img {
+  width: 100px;
+  height: 100px;
+  transform: translateX(15px);
+}
+
+.temp-icon span {
+  font-size: 80px;
+  font-weight: 700;
+}
+
+.current-details {
+  display: flex;
+  gap: 17px;
+  justify-content: space-between;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.detail-item {
+  flex: 1;
+  background: #262f40;
+  padding: 22px;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.detail-item p {
+  color: #b4b1b1;
+  margin: 0 0 13px 0;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.detail-item span {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.daily-forecast {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 16px;
+}
+.daily {
+  margin-top: 5px;
+  background: #262f40;
+  padding: 22px;
+  padding-bottom: 24px;
+  border-radius: 12px;
+  text-align: center;
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+h3 {
+  margin-top: 30px;
+}
+
+.daily img {
+  width: 50px;
+  height: 50px;
+}
+
+.daily_span {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  width: 100%;
+  padding: 0px 0px;
+  gap: 23px;
+  transform: translateX(-16px);
+}
+
+.hourly-forecast {
+  background: #262f40;
+  background-size: 40px;
+  border-radius: 20px;
+  padding: 24px;
+  height: fit-content;
+  display: grid;
+  grid-template-columns: 1fr;
+  max-width: 500px;
+}
+
+.forecast-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.forecast-header h3 {
+  font-size: 18px;
+  font-weight: 500;
+  transform: translateY(-15px);
+}
+
+.day-select {
+  background: #1e293b;
+  padding: 8px 12px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+}
+
+.hourly-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.hourly-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #313f56;
+  padding: 14px;
+  border-radius: 10px;
+}
+
+.hourly-item span:first-child {
+  color: #aab2c0;
+  width: 50px;
+}
+
+.hourly-item img {
+  width: 32px;
+  height: 32px;
+}
+
+.hourly-item span:last-child {
+  font-weight: 600;
+  width: 30px;
+  text-align: right;
+}
+
+@media (max-width: 768px) {
+  .search_box {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .search_box .search,
+  .search_box button {
+    width: 100%;
+  }
+
+  .weather-content {
+    display: block !important;
+  }
+  .left-column,
+  .hourly-forecast {
+    width: 100% !important;
+    max-width: 100% !important;
+    float: none !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  .hourly-forecast {
+    margin-top: 24px;
+  }
+
+  .current-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .daily-forecast {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+
+  .current-weather-card {
+    width: 585px;
+  }
+}
+
+.units-toggle.dropdown {
+  position: relative;
+  z-index: 200;
+}
+
+#unitsMenu {
+  position: absolute;
+  background: #262f40;
+  border: 1px solid #3a455c;
+  border-radius: 8px;
+  padding: 17px;
+  min-width: 75px;
+  max-width: 188px;
+  display: none;
+  z-index: 999;
+  left: 81.5%;
+  right: auto;
+  top: 18%;
+}
+
+#unitsMenu.show {
+  display: block;
+}
+
+/* الزرار العادي */
+
+/* علامة الصح مخفية */
+.unit-option .check {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* لما تدوس عليه */
+.unit-option.active {
+  background-color: #2d3250; /* غير اللون ده براحتك */
+}
+
+.unit-option.active .check {
+  opacity: 1;
+  visibility: visible;
+}
+
+.unit-option .check {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* اظهارها لما الزرار يبقى active */
+.unit-option.active .check {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ونفس الفكرة لقايمة الأيام لو عايز اليوم المختار يبان متعلم */
+#dayMenu li.active {
+  background-color: var(--neutral-700);
+}
+
+.dropdown-menu h5 {
+  font-size: 15px;
+  margin-bottom: 20px;
+}
+
+.dropdown-menu p {
+  font-size: 13px;
+  margin-bottom: 5px;
+  color: #6e7074;
+}
+.dropdown-menu hr {
+  background: #6e7074;
+  height: 0.5px;
+  border: none;
+  margin-bottom: 9px;
+  padding: 0;
+}
+
+/* .day-option {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+} */
+/* .day-option .check { opacity: 0; } */
+
+.day-option {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.day-option .check {
+  opacity: 0;
+  width: 16px;
+  height: 16px;
+  pointer-events: none;
+  display: block;
+}
+
+/* Celsius - الوضع العادي */
+#dailyList .daily_span span {
+  font-size: 1rem;
+  transform: translateX(17px);
+}
+
+/* Fahrenheit - أرقام أعرض، فنصغر شوية */
+#dailyList.fahrenheit .daily_span span {
+  font-size: 0.85rem;
+  letter-spacing: -0.3px;
+}
+
+#dailyList.fahrenheit .daily_span {
+  gap: 30px;
+  justify-content: space-between;
+  transform: translateX(-18px);
+}
+
+.search_box {
+  position: relative;
+  overflow: visible !important;
+}
+#searchSuggestions {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  right: 0;
+  background: #1e1e2f;
+  color: #fff;
+  border-radius: 12px;
+  padding: 4px 0;
+  margin: 0;
+  list-style: none;
+  z-index: 9999;
+  max-height: 240px;
+  overflow-y: auto;
+  display: none;
+}
+#searchSuggestions .show {
+  display: block;
+}
+#searchSuggestions li {
+  padding: 10px 14px;
+  cursor: pointer;
+}
+#searchSuggestions li:hover,
+#searchSuggestions li.active {
+  background: #2a2a40;
+}
+
+
+
+
+
+/* reveal on scroll */
+.reveal{
+  opacity:0;
+  transform:translateY(24px);
+  transition: opacity .6s ease, transform .6s ease;
+}
+.reveal.visible{
+  opacity:1;
+  transform:none;
+}
+@media (prefers-reduced-motion: reduce){
+  .reveal{opacity:1;transform:none;transition:none}
+}

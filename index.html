@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather web site</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="./assets/images/favicon-32x32.png" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <div class="logo">
+          <img src="./assets/images/logo.svg" alt="" />
+        </div>
+        <div class="units-toggle-dropdown">
+          <button class="dropdown-toggle" id="unitsBtn" type="button">
+            <img src="./assets/images/icon-units.svg" alt="" />
+            <span>units</span>
+            <img src="./assets/images/icon-dropdown.svg" alt="" />
+          </button>
+          <div class="dropdown-menu" id="unitsMenu">
+            <h5>Switch to imperial</h5>
+            <p>Temperature</p>
+            <button
+              data-unit="temp"
+              data-value="c"
+              class="unit-option"
+              id="unitTempC"
+            >
+              Celsius (°C)
+              <img
+                src="./assets/images/icon-checkmark.svg"
+                alt=""
+                class="check"
+              />
+            </button>
+            <button
+              data-unit="temp"
+              data-value="f"
+              class="unit-option"
+              id="unitTempF"
+            >
+              Fahrenheit (°F)
+              <img
+                src="./assets/images/icon-checkmark.svg"
+                alt=""
+                class="check"
+              />
+            </button>
+            <hr />
+            <p>Wind speed</p>
+            <button
+              data-unit="speed"
+              data-value="km/h "
+              class="unit-option"
+              id="unitWindKmh"
+            >
+              km/h
+              <img
+                src="./assets/images/icon-checkmark.svg"
+                alt=""
+                class="check"
+              />
+            </button>
+            <button
+              data-unit="speed"
+              data-value="mph"
+              class="unit-option"
+              id="unitWindMph"
+            >
+              mph
+              <img
+                src="./assets/images/icon-checkmark.svg"
+                alt=""
+                class="check"
+              />
+            </button>
+            <hr />
+            <p>Percipitition</p>
+            <button
+              data-unit="Percip"
+              data-value="mm"
+              class="unit-option"
+              id="unitPercipMm"
+            >
+              Millimetres (mm)
+              <img
+                src="./assets/images/icon-checkmark.svg"
+                alt=""
+                class="check"
+              />
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <main>
+        <h1>How's the sky looking today?</h1>
+        <div class="search_box">
+          <div class="search">
+            <img src="./assets/images/icon-search.svg" alt="" />
+            <input
+              type="text"
+              placeholder="Search for a place..."
+              id="searchInput"
+              autocomplete="off"
+            />
+          </div>
+          <button id="searchBtn">Search</button>
+          <ul id="searchSuggestions"></ul>
+        </div>
+
+        <div class="weather-content">
+          <div class="left-column">
+            <div class="current-weather-card">
+              <div class="current-main">
+                <div class="location-date">
+                  <h2 id="condition">Berlin, Germany</h2>
+                  <p id="currentDate">Tuesday, Aug 5, 2025</p>
+                </div>
+                <div class="temp-icon">
+                  <img src="./assets/images/icon-sunny.webp" alt="sunny" />
+                  <span><i id="temp">20°</i></span>
+                </div>
+              </div>
+            </div>
+            <div class="current-details">
+              <div class="detail-item">
+                <p>temperature</p>
+                <span id="feelsLikeValue">18°</span>
+              </div>
+              <div class="detail-item">
+                <p>Humidity</p>
+                <span id="humidityValue">46%</span>
+              </div>
+              <div class="detail-item">
+                <p>Wind</p>
+                <span id="windValue">14 km/h</span>
+              </div>
+              <div class="detail-item">
+                <p>Precipitation</p>
+                <span id="precipValue">0 mm</span>
+              </div>
+            </div>
+
+            <h3>Daily Forecast</h3>
+            <div class="daily-forecast" id="dailyList">
+              <div class="daily">
+                <p>Tue</p>
+                <img src="./assets/images/icon-rain.webp" alt="" />
+                <div class="daily_span">
+                  <span>20°</span>
+                  <span>14°</span>
+                </div>
+              </div>
+              <div class="daily">
+                <p>Wed</p>
+                <img src="./assets/images/icon-drizzle.webp" alt="" />
+                <div class="daily_span">
+                  <span>21°</span>
+                  <span>15°</span>
+                </div>
+              </div>
+              <div class="daily">
+                <p>Thu</p>
+                <img src="./assets/images/icon-sunny.webp" alt="" />
+                <div class="daily_span">
+                  <span>24°</span>
+                  <span>14°</span>
+                </div>
+              </div>
+              <div class="daily">
+                <p>Fri</p>
+                <img src="./assets/images/icon-partly-cloudy.webp" alt="" />
+                <div class="daily_span">
+                  <span>25°</span>
+                  <span>13°</span>
+                </div>
+              </div>
+              <div class="daily">
+                <p>Sat</p>
+                <img src="./assets/images/icon-storm.webp" alt="" />
+                <div class="daily_span">
+                  <span>21°</span>
+                  <span>15°</span>
+                </div>
+              </div>
+              <div class="daily">
+                <p>Sun</p>
+                <img src="./assets/images/icon-snow.webp" alt="" />
+                <div class="daily_span">
+                  <span>25°</span>
+                  <span>16°</span>
+                </div>
+              </div>
+              <div class="daily">
+                <p>Mon</p>
+                <img src="./assets/images/icon-fog.webp" alt="" />
+                <div class="daily_span">
+                  <span>24°</span>
+                  <span>15°</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="hourly-forecast">
+            <div class="forecast-header">
+              <h3>Hourly forecast</h3>
+              <div class="day-select dropdown">
+                <button class="dropdown-toggle" id="dayBtn" type="button">
+                  <span id="dayLabel">Tuesday</span>
+                  <img src="./assets/images/icon-dropdown.svg" alt="dropdown" />
+                </button>
+                <ul class="dropdown-menu" id="dayMenu">
+                  <li class="day-option">
+                    Tuesday
+                    <img
+                      src="./assets/images/icon-checkmark.svg"
+                      alt=""
+                      class="check"
+                    />
+                  </li>
+                  <li class="day-option">
+                    Wednesday
+                    <img
+                      src="./assets/images/icon-checkmark.svg"
+                      alt=""
+                      class="check"
+                    />
+                  </li>
+                  <li class="day-option">
+                    Thursday
+                    <img
+                      src="./assets/images/icon-checkmark.svg"
+                      alt=""
+                      class="check"
+                    />
+                  </li>
+                  <li class="day-option">
+                    Friday
+                    <img
+                      src="./assets/images/icon-checkmark.svg"
+                      alt=""
+                      class="check"
+                    />
+                  </li>
+                  <li class="day-option">
+                    Satarday
+                    <img
+                      src="./assets/images/icon-checkmark.svg"
+                      alt=""
+                      class="check"
+                    />
+                  </li>
+                  <li class="day-option">
+                    Sunday
+                    <img
+                      src="./assets/images/icon-checkmark.svg"
+                      alt=""
+                      class="check"
+                    />
+                  </li>
+                  <li class="day-option">
+                    Monday
+                    <img
+                      src="./assets/images/icon-checkmark.svg"
+                      alt=""
+                      class="check"
+                    />
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="hourly-list" id="hourlyList">
+              <div class="hourly-item">
+                <span>3 PM</span>
+                <img src="./assets/images/icon-overcast.webp" alt="overcast" />
+                <span>20°</span>
+              </div>
+              <div class="hourly-item">
+                <span>4 PM</span>
+                <img src="./assets/images/icon-overcast.webp" alt="overcast" />
+                <span>20°</span>
+              </div>
+              <div class="hourly-item">
+                <span>5 PM</span>
+                <img src="./assets/images/icon-sunny.webp" alt="sunny" />
+                <span>20°</span>
+              </div>
+              <div class="hourly-item">
+                <span>6 PM</span>
+                <img src="./assets/images/icon-overcast.webp" alt="overcast" />
+                <span>19°</span>
+              </div>
+              <div class="hourly-item">
+                <span>7 PM</span>
+                <img src="./assets/images/icon-snow.webp" alt="snow" />
+                <span>18°</span>
+              </div>
+              <div class="hourly-item">
+                <span>8 PM</span>
+                <img src="./assets/images/icon-overcast.webp" alt="overcast" />
+                <span>18°</span>
+              </div>
+              <div class="hourly-item">
+                <span>9 PM</span>
+                <img
+                  src="./assets/images/icon-partly-cloudy.webp"
+                  alt="overcast"
+                />
+                <span>17°</span>
+              </div>
+              <div class="hourly-item">
+                <span>10 PM</span>
+                <img src="./assets/images/icon-fog.webp" alt="overcast" />
+                <span>17°</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+      <footer></footer>
+    </div>
+
+    <script src="main.js"></script>
+  </body>
+</html>
