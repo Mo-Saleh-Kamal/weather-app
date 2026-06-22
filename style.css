@@ -362,6 +362,12 @@ h3 {
 }
 
 @media (max-width: 768px) {
+    .container{
+    left: 100%;
+  }
+  main{
+    padding-left: 40px;
+  }
   .search_box {
     flex-direction: column;
     gap: 12px;
@@ -400,7 +406,7 @@ h3 {
   }
 
   .current-weather-card {
-    width: 585px;
+    width: 100%;
   }
 }
 
